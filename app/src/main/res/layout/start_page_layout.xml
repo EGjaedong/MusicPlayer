@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/start_page"
+    tools:context=".StartPageActivity">
+
+    <TextView
+        android:id="@+id/start_page_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_page_text"
+        android:textColor="@color/colorStartPageText"
+        android:textSize="@dimen/start_page_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.55" />
+
+    <TextView
+        android:id="@+id/start_page_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_page_desc_text"
+        android:textColor="@color/colorStartPageText"
+        android:textSize="@dimen/start_page_text_desc_size"
+        app:layout_constraintStart_toStartOf="@+id/start_page_title"
+        app:layout_constraintTop_toBottomOf="@+id/start_page_title" />
+
+    <Button
+        android:id="@+id/button_start_page"
+        android:layout_width="@dimen/start_page_button_width"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_start_page_shape"
+        android:text="@string/start_page_button_text"
+        android:textAllCaps="false"
+        android:textColor="@color/colorStartPageText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.9" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

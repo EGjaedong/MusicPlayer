@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPink">#999400D3</color>
+    <color name="colorMainPageBackground">#0e0b1F</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorUserNameHint">#DEDEDE</color>
+    <color name="colorStartPageText">#FFFFFF</color>
+    <color name="colorStartPageButton">#EF01A0</color>
+</resources>
