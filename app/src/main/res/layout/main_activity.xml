@@ -30,7 +30,8 @@
             android:layout_marginStart="@dimen/main_page_user_name_start_margin"
             android:hint="@string/default_user_name"
             android:textColorHint="@color/colorUserNameHint"
-            android:textSize="@dimen/main_page_user_name_text_size" />
+            android:textSize="@dimen/main_page_user_name_text_size"
+            android:textStyle="bold" />
 
         <ImageView
             android:layout_width="@dimen/go_ahead_width"
@@ -41,6 +42,116 @@
             android:src="@drawable/ic_go_ahead" />
     </LinearLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/my_favorite_music_list_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/main_page_music_list_margin_start_and_end"
+        android:layout_marginTop="@dimen/music_my_favorite_top_margin"
+        android:layout_marginEnd="@dimen/main_page_music_list_margin_start_and_end"
+        android:background="@drawable/my_favorite_music_list_shape"
+        app:layout_constraintTop_toBottomOf="@+id/main_page_user_info_container">
 
+        <ImageView
+            android:id="@+id/main_page_my_favorite_music_list_icon"
+            android:layout_width="@dimen/main_page_my_favorite_music_list_icon_size"
+            android:layout_height="@dimen/main_page_my_favorite_music_list_icon_size"
+            android:layout_marginStart="@dimen/main_page_my_favorite_music_list_icon_start_margin"
+            android:layout_marginTop="@dimen/main_page_my_favorite_music_list_icon_top_bottom_margin"
+            android:layout_marginBottom="@dimen/main_page_my_favorite_music_list_icon_top_bottom_margin"
+            android:background="@drawable/my_favorite_icon_shape"
+            android:contentDescription="@string/my_favorite_list_icon"
+            android:padding="@dimen/my_favorite_icon_padding"
+            android:src="@drawable/ic_favorite"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/my_favorite_music_list_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/my_favorite_music_list_title_start_margin"
+            android:layout_marginTop="@dimen/my_favorite_music_list_title_top_margin"
+            android:text="@string/my_favorite_list_title_text"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/my_favorite_music_list_title_text_size"
+            app:layout_constraintStart_toEndOf="@+id/main_page_my_favorite_music_list_icon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/my_favorite_music_list_music_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/my_favorite_music_list_music_count_top_margin"
+            android:hint="@string/my_favorite_list_music_count_text"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/my_favorite_music_list_title_text_size"
+            app:layout_constraintStart_toStartOf="@+id/my_favorite_music_list_title"
+            app:layout_constraintTop_toBottomOf="@+id/my_favorite_music_list_title" />
+
+        <Button
+            android:id="@+id/btn_play_all_my_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/btn_play_all_height"
+            android:layout_marginEnd="@dimen/btn_play_all_end_margin"
+            android:background="@drawable/btn_play_all_shape"
+            android:paddingStart="@dimen/main_page_btn_start_end_padding"
+            android:paddingTop="@dimen/main_page_btn_top_bottom_padding"
+            android:paddingEnd="@dimen/main_page_btn_start_end_padding"
+            android:paddingBottom="@dimen/main_page_btn_top_bottom_padding"
+            android:text="@string/btn_play_all_text"
+            android:textColor="@color/colorGray"
+            android:textSize="@dimen/main_page_btn_text_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/create_music_list_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/main_page_music_list_margin_start_and_end"
+        android:layout_marginTop="@dimen/music_my_favorite_top_margin"
+        android:layout_marginEnd="@dimen/main_page_music_list_margin_start_and_end"
+        android:background="@drawable/my_favorite_music_list_shape"
+        app:layout_constraintTop_toBottomOf="@+id/my_favorite_music_list_container">
+
+        <TextView
+            android:id="@+id/created_music_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/created_music_list_text_start_margin"
+            android:layout_marginTop="@dimen/created_music_list_top_margin"
+            android:hint="@string/created_music_list_hint"
+            android:textColor="@color/colorGray"
+            android:textSize="@dimen/created_music_list_text_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btn_create_music_list"
+            android:layout_width="@dimen/btn_create_music_list_size"
+            android:layout_height="@dimen/btn_create_music_list_size"
+            android:layout_marginTop="@dimen/btn_create_music_list_top_margin"
+            android:layout_marginEnd="@dimen/btn_create_music_list_end_margin"
+            android:background="@drawable/btn_create_music_list_shape"
+            android:contentDescription="@string/created_music_list_desc"
+            android:scaleType="center"
+            android:src="@mipmap/ic_add"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/created_music_list_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/main_page_music_list_margin_start_and_end"
+            android:layout_marginTop="@dimen/created_music_list_container_top_margin"
+            android:layout_marginEnd="@dimen/main_page_music_list_margin_start_and_end"
+            app:layout_constraintTop_toBottomOf="@+id/created_music_list" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,10 +3,15 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
-    <color name="colorPink">#999400D3</color>
-    <color name="colorMainPageBackground">#0e0b1F</color>
+    <color name="colorIconBoard">#F4F0F1</color>
+    <color name="colorPink">#9400D3</color>
+    <color name="colorMainPageBackground">#E5E5E3</color>
     <color name="colorWhite">#FFFFFF</color>
-    <color name="colorUserNameHint">#DEDEDE</color>
+    <color name="colorUserNameHint">#80020100</color>
     <color name="colorStartPageText">#FFFFFF</color>
     <color name="colorStartPageButton">#EF01A0</color>
+    <color name="colorTransparent">#00000000</color>
+    <color name="colorMainPageBackgroundWith">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorGray">#77787b</color>
 </resources>
