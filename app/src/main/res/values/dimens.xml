@@ -21,7 +21,7 @@
     <dimen name="music_list_my_favorite">12dp</dimen>
     <dimen name="music_my_favorite_top_margin">28dp</dimen>
     <dimen name="my_favorite_music_list_board_width">2dp</dimen>
-    <dimen name="my_favorite_music_list_radius">8dp</dimen>
+    <dimen name="my_favorite_music_list_radius">12dp</dimen>
     <dimen name="main_page_my_favorite_music_list_icon_size">36dp</dimen>
     <dimen name="main_page_my_favorite_music_list_icon_top_bottom_margin">16dp</dimen>
     <dimen name="main_page_my_favorite_music_list_icon_start_margin">12dp</dimen>
@@ -30,7 +30,7 @@
     <dimen name="my_favorite_icon_width">2dp</dimen>
     <dimen name="my_favorite_music_list_title_start_margin">12dp</dimen>
     <dimen name="my_favorite_music_list_title_top_margin">12dp</dimen>
-    <dimen name="my_favorite_music_list_title_text_size">20sp</dimen>
+    <dimen name="music_list_title_text_size">20sp</dimen>
     <dimen name="my_favorite_music_list_music_count_top_margin">4dp</dimen>
     <dimen name="btn_play_all_end_margin">28dp</dimen>
     <dimen name="btn_play_all_radius">16dp</dimen>
@@ -48,4 +48,13 @@
     <dimen name="created_music_list_top_margin">4dp</dimen>
     <dimen name="created_music_list_container_top_margin">4dp</dimen>
     <dimen name="btn_create_music_list_top_margin">4dp</dimen>
+    <dimen name="music_list_item_padding_top_bottom">4dp</dimen>
+    <dimen name="music_list_icon_size">24dp</dimen>
+    <dimen name="music_list_icon_top_bottom_margin">20dp</dimen>
+    <dimen name="music_list_icon_start_margin">20dp</dimen>
+    <dimen name="music_list_title_top_margin">12dp</dimen>
+    <dimen name="music_list_title_start_margin">16dp</dimen>
+    <dimen name="music_list_count_top_margin">4dp</dimen>
+    <dimen name="music_list_count_text_size">12sp</dimen>
+    <dimen name="music_list_height">76dp</dimen>
 </resources>

@@ -1,8 +1,10 @@
-package com.hezhiheng.musicplayer;
+package com.hezhiheng.musicplayer.ui;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+
+import com.hezhiheng.musicplayer.R;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;

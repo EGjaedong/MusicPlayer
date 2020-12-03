@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/music_list_height"
+    android:background="@color/colorWhite"
+    android:paddingTop="@dimen/music_list_item_padding_top_bottom"
+    android:paddingBottom="@dimen/music_list_item_padding_top_bottom">
+
+    <ImageView
+        android:id="@+id/music_list_icon"
+        android:layout_width="@dimen/music_list_icon_size"
+        android:layout_height="@dimen/music_list_icon_size"
+        android:layout_marginStart="@dimen/music_list_icon_start_margin"
+        android:layout_marginTop="@dimen/music_list_icon_top_bottom_margin"
+        android:layout_marginBottom="@dimen/music_list_icon_top_bottom_margin"
+        android:contentDescription="@string/music_list_icon"
+        android:src="@drawable/ic_music_list"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/music_list_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/music_list_title_start_margin"
+        android:layout_marginTop="@dimen/music_list_title_top_margin"
+        android:hint="@string/music_list_hint"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/music_list_title_text_size"
+        app:layout_constraintStart_toEndOf="@+id/music_list_icon"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/music_list_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/music_list_count_top_margin"
+        android:hint="@string/music_list_count_text"
+        android:textColor="@color/colorGray"
+        android:textSize="@dimen/music_list_count_text_size"
+        app:layout_constraintStart_toStartOf="@+id/music_list_title"
+        app:layout_constraintTop_toBottomOf="@id/music_list_title" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

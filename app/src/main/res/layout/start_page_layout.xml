@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/start_page"
-    tools:context=".StartPageActivity">
+    tools:context=".ui.StartPageActivity">
 
     <TextView
         android:id="@+id/start_page_title"
