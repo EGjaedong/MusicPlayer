@@ -46,7 +46,7 @@
     <dimen name="btn_create_music_list_size">24dp</dimen>
     <dimen name="btn_create_music_list_top_bottom_padding">1dp</dimen>
     <dimen name="created_music_list_top_margin">4dp</dimen>
-    <dimen name="created_music_list_container_top_margin">4dp</dimen>
+    <dimen name="created_music_list_container_top_bottom_margin">4dp</dimen>
     <dimen name="btn_create_music_list_top_margin">4dp</dimen>
     <dimen name="music_list_item_padding_top_bottom">4dp</dimen>
     <dimen name="music_list_icon_size">24dp</dimen>
@@ -57,4 +57,5 @@
     <dimen name="music_list_count_top_margin">4dp</dimen>
     <dimen name="music_list_count_text_size">12sp</dimen>
     <dimen name="music_list_height">76dp</dimen>
+    <dimen name="tab_bar_height">64dp</dimen>
 </resources>
