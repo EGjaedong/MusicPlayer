@@ -41,19 +41,17 @@ public class MainActivity extends Activity {
         MusicListAdapter musicListAdapter = new MusicListAdapter(lists, this);
         mMusicListContainer.setAdapter(musicListAdapter);
         mMusicListContainer.setLayoutManager(new LinearLayoutManager(this));
+        mMusicListContainer.setNestedScrollingEnabled(false);
 
-        mScrollview.setOnScrollChangeListener(new View.OnScrollChangeListener() {
-            @Override
-            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                Rect scrollRect = new Rect();
-                mScrollview.getHitRect(scrollRect);
-                if (mMainUserInfoContainer.getLocalVisibleRect(scrollRect)) {
-                    mMainUserInfoContainer.setVisibility(View.VISIBLE);
-                    mMainPageHeaderContainer.setVisibility(View.INVISIBLE);
-                } else {
-                    mMainUserInfoContainer.setVisibility(View.INVISIBLE);
-                    mMainPageHeaderContainer.setVisibility(View.VISIBLE);
-                }
+        mScrollview.setOnScrollChangeListener((v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
+            Rect scrollRect = new Rect();
+            mScrollview.getHitRect(scrollRect);
+            if (mMainUserInfoContainer.getLocalVisibleRect(scrollRect)) {
+                mMainUserInfoContainer.setVisibility(View.VISIBLE);
+                mMainPageHeaderContainer.setVisibility(View.INVISIBLE);
+            } else {
+                mMainUserInfoContainer.setVisibility(View.INVISIBLE);
+                mMainPageHeaderContainer.setVisibility(View.VISIBLE);
             }
         });
     }

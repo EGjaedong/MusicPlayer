@@ -15,4 +15,10 @@
     <string name="create_music_list_text">+</string>
     <string name="music_list_icon">音乐列表</string>
     <string name="music_list_hint">音乐列表</string>
+    <string name="tab_bar_button_main_page_desc">主页</string>
+    <string name="tab_bar_text_main_page_text">列表</string>
+    <string name="tab_bar_text_search_text">搜索</string>
+    <string name="tab_bar_button_search_desc">搜索</string>
+    <string name="tab_bar_text_mine_text">我的</string>
+    <string name="tab_bar_button_mine_desc">我的</string>
 </resources>

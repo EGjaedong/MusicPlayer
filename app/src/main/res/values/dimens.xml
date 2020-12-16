@@ -57,9 +57,14 @@
     <dimen name="music_list_count_top_margin">4dp</dimen>
     <dimen name="music_list_count_text_size">12sp</dimen>
     <dimen name="music_list_height">76dp</dimen>
-    <dimen name="tab_bar_height">64dp</dimen>
-    <dimen name="main_page_header_margin_bottom">4dp</dimen>
+    <dimen name="main_page_header_margin_bottom">12dp</dimen>
     <dimen name="main_page_header_image_size">24dp</dimen>
     <dimen name="main_page_header_image_margin_end">4dp</dimen>
     <dimen name="main_page_header_user_name_size">20sp</dimen>
+    <dimen name="tab_bar_height">72dp</dimen>
+    <dimen name="tab_bar_button_size">48dp</dimen>
+    <dimen name="tab_bar_margin_top">4dp</dimen>
+    <dimen name="tab_bar_text_size">12sp</dimen>
+    <dimen name="tab_bar_button_search_padding">4dp</dimen>
+    <dimen name="main_page_top_height">32dp</dimen>
 </resources>
