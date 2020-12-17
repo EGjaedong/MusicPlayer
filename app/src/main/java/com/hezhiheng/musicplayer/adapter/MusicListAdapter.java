@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,6 +18,7 @@ import java.util.List;
 public class MusicListAdapter extends RecyclerView.Adapter<MusicListItemViewHolder> {
     public List<MusicList> mMusicLists;
     public Context mContext;
+    private OnItemClickListener mItemClickListener;
 
     public MusicListAdapter(List<MusicList> mMusicLists, Context mContext) {
         this.mMusicLists = mMusicLists;
@@ -37,11 +39,20 @@ public class MusicListAdapter extends RecyclerView.Adapter<MusicListItemViewHold
         if (musicList != null) {
             holder.mMusicListTitle.setText(musicList.getTitle());
             holder.mMusicListCount.setText(String.valueOf(musicList.getCount()));
+            holder.setClickListener(mItemClickListener);
         }
+    }
+
+    public void setItemClickListener(OnItemClickListener listener) {
+        mItemClickListener = listener;
     }
 
     @Override
     public int getItemCount() {
         return mMusicLists.size();
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(View v, int position);
     }
 }

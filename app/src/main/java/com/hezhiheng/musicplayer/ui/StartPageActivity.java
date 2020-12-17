@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.hezhiheng.musicplayer.R;
+import com.hezhiheng.musicplayer.ui.main.MainActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;

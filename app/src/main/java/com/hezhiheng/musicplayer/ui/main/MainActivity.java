@@ -1,6 +1,7 @@
-package com.hezhiheng.musicplayer.ui;
+package com.hezhiheng.musicplayer.ui.main;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.View;
@@ -8,12 +9,14 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hezhiheng.musicplayer.R;
 import com.hezhiheng.musicplayer.adapter.MusicListAdapter;
 import com.hezhiheng.musicplayer.entity.MusicList;
+import com.hezhiheng.musicplayer.ui.musiclist.MusicListActivity;
 
 import java.util.List;
 
@@ -29,8 +32,16 @@ public class MainActivity extends Activity {
     ScrollView mScrollview;
     @BindView(R.id.main_page_user_info_container)
     LinearLayout mMainUserInfoContainer;
+    @BindView(R.id.my_favorite_music_list_container)
+    ConstraintLayout mMyFavoriteListContainer;
 
     private List<MusicList> lists = MusicList.createList();
+
+    private final MusicListAdapter.OnItemClickListener itemClickListener = (view, position) -> {
+        Intent intent = new Intent(MainActivity.this, MusicListActivity.class);
+        intent.putExtra("position", position);
+        startActivity(intent);
+    };
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,6 +50,7 @@ public class MainActivity extends Activity {
         ButterKnife.bind(this);
 
         MusicListAdapter musicListAdapter = new MusicListAdapter(lists, this);
+        musicListAdapter.setItemClickListener(itemClickListener);
         mMusicListContainer.setAdapter(musicListAdapter);
         mMusicListContainer.setLayoutManager(new LinearLayoutManager(this));
         mMusicListContainer.setNestedScrollingEnabled(false);
