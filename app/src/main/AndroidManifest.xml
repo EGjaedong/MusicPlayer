@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.main.MainActivity" />
-        <activity android:name=".ui.musiclist.MusicListActivity" />
+        <activity android:name=".ui.musiclist.MusicListFragment" />
     </application>
 
 </manifest>

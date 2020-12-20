@@ -31,7 +31,8 @@ public class MainActivity extends FragmentActivity {
 
     private void initView() {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.main_page_content_container, new MainPageContent()).commit();
+        fragmentTransaction.add(R.id.main_page_content_container, new MainPageContentFragment())
+                .addToBackStack(MainPageContentFragment.MAIN_PAGE_CONTENT_FRAGMENT_TAG).commit();
     }
 
     @OnClick({R.id.tab_bar_button_main_page})
@@ -39,7 +40,7 @@ public class MainActivity extends FragmentActivity {
         switch (view.getId()) {
             case R.id.tab_bar_button_main_page:
                 getSupportFragmentManager().beginTransaction()
-                        .replace(mContainer.getId(), new MainPageContent()).commit();
+                        .replace(mContainer.getId(), new MainPageContentFragment()).commit();
                 break;
         }
     }

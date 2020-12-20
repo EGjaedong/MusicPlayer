@@ -24,4 +24,8 @@
     <string name="music_list_label">歌单</string>
     <string name="music_list_page_play_all_text_content">播放全部</string>
     <string name="music_list_page_count_text">(共233首)</string>
+    <string name="music_item_number_hint">1</string>
+    <string name="music_item_name_hint">晴天</string>
+    <string name="music_item_desc_hint">周杰伦-叶惠美</string>
+    <string name="music_item_desc_template">%s-%s</string>
 </resources>

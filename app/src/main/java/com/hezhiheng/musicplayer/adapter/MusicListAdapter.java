@@ -1,10 +1,8 @@
 package com.hezhiheng.musicplayer.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,12 +15,10 @@ import java.util.List;
 
 public class MusicListAdapter extends RecyclerView.Adapter<MusicListItemViewHolder> {
     public List<MusicList> mMusicLists;
-    public Context mContext;
     private OnItemClickListener mItemClickListener;
 
-    public MusicListAdapter(List<MusicList> mMusicLists, Context mContext) {
+    public MusicListAdapter(List<MusicList> mMusicLists) {
         this.mMusicLists = mMusicLists;
-        this.mContext = mContext;
     }
 
     @NonNull

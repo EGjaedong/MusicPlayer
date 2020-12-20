@@ -14,7 +14,7 @@ import com.hezhiheng.musicplayer.R;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class TabBarContainer extends Fragment {
+public class TabBarContainerFragment extends Fragment {
 
     private Unbinder mBind;
 

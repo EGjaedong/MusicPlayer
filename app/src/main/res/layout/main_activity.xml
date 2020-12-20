@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/tab_bar_container"
-        android:name="com.hezhiheng.musicplayer.ui.main.TabBarContainer"
+        android:name="com.hezhiheng.musicplayer.ui.main.TabBarContainerFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent" />
@@ -15,7 +15,7 @@
     <FrameLayout
         android:id="@+id/main_page_content_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/main_page_frame_layout_height"
         app:layout_constraintBottom_toTopOf="@+id/tab_bar_container"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
