@@ -6,12 +6,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -40,6 +42,8 @@ public class MainPageContent extends Fragment {
 
     private List<MusicList> lists = MusicList.createList();
 
+    private FragmentActivity mActivity;
+
     private final MusicListAdapter.OnItemClickListener itemClickListener = (view, position) -> {
         Intent intent = new Intent(getContext(), MusicListActivity.class);
         intent.putExtra("position", position);
@@ -51,6 +55,7 @@ public class MainPageContent extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.main_page_content_layout, container, false);
         mBind = ButterKnife.bind(this, view);
+        mActivity = getActivity();
         initView();
         return view;
     }

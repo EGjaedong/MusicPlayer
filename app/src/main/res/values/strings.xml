@@ -21,4 +21,7 @@
     <string name="tab_bar_button_search_desc">搜索</string>
     <string name="tab_bar_text_mine_text">我的</string>
     <string name="tab_bar_button_mine_desc">我的</string>
+    <string name="music_list_label">歌单</string>
+    <string name="music_list_page_play_all_text_content">播放全部</string>
+    <string name="music_list_page_count_text">(共233首)</string>
 </resources>

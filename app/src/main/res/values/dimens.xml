@@ -67,4 +67,23 @@
     <dimen name="tab_bar_text_size">12sp</dimen>
     <dimen name="tab_bar_button_search_padding">4dp</dimen>
     <dimen name="main_page_top_height">32dp</dimen>
+
+    <!-- music list page -->
+    <dimen name="music_list_label_margin_top">20dp</dimen>
+    <dimen name="music_list_label_text_size">20sp</dimen>
+    <dimen name="music_list_name_text_size">28sp</dimen>
+    <dimen name="music_list_name_text_margin_top">24dp</dimen>
+    <dimen name="music_list_container_margin_start_and_end">24dp</dimen>
+    <dimen name="music_list_page_play_all_container_radius">25dp</dimen>
+    <dimen name="music_list_page_play_all_container_board_width">1dp</dimen>
+    <dimen name="music_list_page_play_all_container_margin_top">24dp</dimen>
+    <dimen name="music_list_page_play_all_image_size">24dp</dimen>
+    <dimen name="music_list_page_play_all_image_margin_start">12dp</dimen>
+    <dimen name="music_list_page_play_all_container_height">32dp</dimen>
+    <dimen name="music_list_page_play_all_text_size">18sp</dimen>
+    <dimen name="music_list_page_play_all_text_margin_start">8dp</dimen>
+    <dimen name="music_list_number_count_margin_start">4dp</dimen>
+    <dimen name="music_list_number_count_text_size">12sp</dimen>
+    <dimen name="music_list_number_count_margin_bottom">2dp</dimen>
+    <dimen name="container_music_list_page_content_radius">16dp</dimen>
 </resources>

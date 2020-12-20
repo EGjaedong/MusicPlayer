@@ -14,4 +14,5 @@
     <color name="colorMainPageBackgroundWith">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
     <color name="colorGray">#77787b</color>
+    <color name="colorMusicListContainerBorder">#707070</color>
 </resources>

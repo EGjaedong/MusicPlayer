@@ -2,8 +2,93 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorMainPageBackground">
 
+    <TextView
+        android:id="@+id/music_list_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/music_list_label_margin_top"
+        android:text="@string/music_list_label"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/music_list_label_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/music_list_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/music_list_name_text_margin_top"
+        android:text="@string/my_favorite_list_title_text"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/music_list_name_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/music_list_label" />
+
+    <LinearLayout
+        android:id="@+id/music_list_page_content_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/music_list_page_play_all_container_margin_top"
+        android:background="@drawable/container_music_list_page_content_shape"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/music_list_name">
+
+        <LinearLayout
+            android:id="@+id/music_list_page_play_all_container"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/music_list_page_play_all_container_height"
+            android:background="@drawable/container_music_list_play_all_shape"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/image_music_list_page_play_all"
+                android:layout_width="@dimen/music_list_page_play_all_image_size"
+                android:layout_height="@dimen/music_list_page_play_all_image_size"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/music_list_page_play_all_image_margin_start"
+                android:contentDescription="@string/btn_play_all_text"
+                android:src="@drawable/ic_play" />
+
+            <TextView
+                android:id="@+id/music_list_page_play_all_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/music_list_page_play_all_text_margin_start"
+                android:text="@string/music_list_page_play_all_text_content"
+                android:textColor="@color/colorGray"
+                android:textSize="@dimen/music_list_page_play_all_text_size" />
+
+            <TextView
+                android:id="@+id/music_list_number_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="@dimen/music_list_number_count_margin_start"
+                android:layout_marginBottom="@dimen/music_list_number_count_margin_bottom"
+                android:hint="@string/music_list_page_count_text"
+                android:textColor="@color/colorGray"
+                android:textSize="@dimen/music_list_number_count_text_size" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/music_list_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/music_list_container_margin_start_and_end"
+            android:layout_marginEnd="@dimen/music_list_container_margin_start_and_end"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/music_list_name" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
