@@ -5,14 +5,14 @@
     android:layout_height="@dimen/tab_bar_height"
     android:background="@color/colorMainPageBackground">
 
-    <ImageView
+    <ImageButton
         android:id="@+id/tab_bar_button_main_page"
         android:layout_width="@dimen/tab_bar_button_size"
         android:layout_height="@dimen/tab_bar_button_size"
         android:layout_marginTop="@dimen/tab_bar_margin_top"
-        android:clickable="true"
+        android:background="@color/colorMainPageBackground"
         android:contentDescription="@string/tab_bar_button_main_page_desc"
-        android:focusable="true"
+        android:scaleType="centerInside"
         android:src="@drawable/ic_music_list"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.2"
@@ -30,15 +30,15 @@
         app:layout_constraintStart_toStartOf="@+id/tab_bar_button_main_page"
         app:layout_constraintTop_toBottomOf="@+id/tab_bar_button_main_page" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/tab_bar_button_search"
         android:layout_width="@dimen/tab_bar_button_size"
         android:layout_height="@dimen/tab_bar_button_size"
         android:layout_marginTop="@dimen/tab_bar_margin_top"
-        android:clickable="true"
+        android:background="@color/colorMainPageBackground"
         android:contentDescription="@string/tab_bar_button_search_desc"
-        android:focusable="true"
         android:padding="@dimen/tab_bar_button_search_padding"
+        android:scaleType="centerInside"
         android:src="@drawable/ic_search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,14 +55,14 @@
         app:layout_constraintStart_toStartOf="@+id/tab_bar_button_search"
         app:layout_constraintTop_toBottomOf="@+id/tab_bar_button_search" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/tab_bar_button_mine"
         android:layout_width="@dimen/tab_bar_button_size"
         android:layout_height="@dimen/tab_bar_button_size"
         android:layout_marginTop="@dimen/tab_bar_margin_top"
-        android:clickable="true"
+        android:background="@color/colorMainPageBackground"
         android:contentDescription="@string/tab_bar_button_mine_desc"
-        android:focusable="true"
+        android:scaleType="centerInside"
         android:src="@drawable/ic_user_bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.8"
