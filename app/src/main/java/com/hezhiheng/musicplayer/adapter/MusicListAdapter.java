@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.hezhiheng.musicplayer.R;
 import com.hezhiheng.musicplayer.adapter.viewholder.MusicListItemViewHolder;
-import com.hezhiheng.musicplayer.entity.MusicList;
+import com.hezhiheng.musicplayer.db.entity.MusicList;
 
 import java.util.List;
 
@@ -37,6 +37,10 @@ public class MusicListAdapter extends RecyclerView.Adapter<MusicListItemViewHold
             holder.mMusicListCount.setText(String.valueOf(musicList.getCount()));
             holder.setClickListener(mItemClickListener);
         }
+    }
+
+    public void setMusicLists(List<MusicList> lists) {
+        mMusicLists = lists;
     }
 
     public void setItemClickListener(OnItemClickListener listener) {

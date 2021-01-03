@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.hezhiheng.musicplayer.R;
 import com.hezhiheng.musicplayer.adapter.viewholder.MusicItemViewHolder;
-import com.hezhiheng.musicplayer.entity.Music;
+import com.hezhiheng.musicplayer.db.entity.Music;
 
 import java.util.List;
 

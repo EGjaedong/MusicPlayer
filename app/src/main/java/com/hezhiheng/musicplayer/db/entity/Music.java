@@ -1,20 +1,40 @@
-package com.hezhiheng.musicplayer.entity;
+package com.hezhiheng.musicplayer.db.entity;
+
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity(tableName = "music")
 public class Music {
+    @PrimaryKey(autoGenerate = true)
+    private int id;
+    @ColumnInfo
     private String name;
+    @ColumnInfo
     private String singer;
+    @ColumnInfo
     private String album;
 
     public Music() {
     }
 
+    @Ignore
     public Music(String name, String singer, String album) {
         this.name = name;
         this.singer = singer;
         this.album = album;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
