@@ -6,7 +6,7 @@ import androidx.room.Room;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.platform.app.InstrumentationRegistry;
 
-import com.hezhiheng.musicplayer.db.entity.MusicList;
+import com.hezhiheng.musicplayer.db.entity.Music;
 import com.hezhiheng.musicplayer.db.roomdatabases.AppDatabase;
 
 import org.junit.After;
@@ -23,13 +23,13 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 
 @RunWith(AndroidJUnit4.class)
-public class MusicListDaoTest {
-    private static final String TAG = MusicListDaoTest.class.getSimpleName();
+public class MusicDaoTest {
+    private static final String TAG = MusicDaoTest.class.getSimpleName();
 
     private AppDatabase mDatabase;
 
     @Before
-    public void createDb() {
+    public void init() {
         mDatabase = Room.inMemoryDatabaseBuilder(InstrumentationRegistry.getInstrumentation().getContext(),
                 AppDatabase.class)
                 // 允许在主线程中运行，仅用于测试
@@ -38,14 +38,14 @@ public class MusicListDaoTest {
     }
 
     @After
-    public void closeDb() {
+    public void close() {
         mDatabase.close();
     }
 
     @Test
     public void testSaveAll() {
-        List<MusicList> musicLists = MusicList.createList();
-        Maybe<List<Long>> insertResult = mDatabase.getMusicListDao().saveAll(musicLists);
+        List<Music> musics = Music.createList();
+        Maybe<List<Long>> insertResult = mDatabase.getMusicDao().saveAll(musics);
         insertResult.subscribe(new MaybeObserver<List<Long>>() {
             @Override
             public void onSubscribe(@NonNull Disposable d) {
@@ -54,7 +54,7 @@ public class MusicListDaoTest {
 
             @Override
             public void onSuccess(@NonNull List<Long> list) {
-                Assert.assertEquals(Long.valueOf(10), Long.valueOf(list.size()));
+                Assert.assertEquals(Long.valueOf(3), Long.valueOf(list.size()));
                 Log.i(TAG, "insert success. Insert number is :" + list.size());
             }
 

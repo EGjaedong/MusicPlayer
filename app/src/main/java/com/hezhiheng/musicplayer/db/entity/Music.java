@@ -11,7 +11,7 @@ import java.util.List;
 @Entity(tableName = "music")
 public class Music {
     @PrimaryKey(autoGenerate = true)
-    private int id;
+    private int musicId;
     @ColumnInfo
     private String name;
     @ColumnInfo
@@ -29,12 +29,12 @@ public class Music {
         this.album = album;
     }
 
-    public int getId() {
-        return id;
+    public int getMusicId() {
+        return musicId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setMusicId(int musicId) {
+        this.musicId = musicId;
     }
 
     public String getName() {

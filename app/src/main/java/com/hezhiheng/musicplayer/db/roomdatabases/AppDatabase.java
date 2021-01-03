@@ -6,6 +6,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.hezhiheng.musicplayer.db.dao.MusicDao;
 import com.hezhiheng.musicplayer.db.dao.MusicListDao;
 import com.hezhiheng.musicplayer.db.entity.Music;
 import com.hezhiheng.musicplayer.db.entity.MusicList;
@@ -19,11 +20,13 @@ public abstract class AppDatabase extends RoomDatabase {
         synchronized (AppDatabase.class) {
             if (instance == null) {
                 instance =
-                        Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, DATA_BASE_NAME).build();
+                        Room.databaseBuilder(context, AppDatabase.class, DATA_BASE_NAME).build();
             }
         }
         return instance;
     }
 
     public abstract MusicListDao getMusicListDao();
+
+    public abstract MusicDao getMusicDao();
 }
