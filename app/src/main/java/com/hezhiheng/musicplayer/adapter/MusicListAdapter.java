@@ -34,7 +34,7 @@ public class MusicListAdapter extends RecyclerView.Adapter<MusicListItemViewHold
         MusicList musicList = mMusicLists.get(position);
         if (musicList != null) {
             holder.mMusicListTitle.setText(musicList.getTitle());
-            holder.mMusicListCount.setText(String.valueOf(musicList.getCount()));
+            holder.mMusicListCount.setText(String.valueOf(233));
             holder.setClickListener(mItemClickListener);
         }
     }

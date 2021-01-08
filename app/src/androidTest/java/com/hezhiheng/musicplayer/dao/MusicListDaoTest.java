@@ -6,7 +6,12 @@ import androidx.room.Room;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.platform.app.InstrumentationRegistry;
 
+import com.hezhiheng.musicplayer.db.dao.MusicDao;
+import com.hezhiheng.musicplayer.db.dao.MusicListAndMusicCrossRefDao;
+import com.hezhiheng.musicplayer.db.dao.MusicListDao;
+import com.hezhiheng.musicplayer.db.entity.Music;
 import com.hezhiheng.musicplayer.db.entity.MusicList;
+import com.hezhiheng.musicplayer.db.entity.MusicListAndMusicCrossRef;
 import com.hezhiheng.musicplayer.db.roomdatabases.AppDatabase;
 
 import org.junit.After;
@@ -14,19 +19,22 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.reactivestreams.Subscription;
 
 import java.util.List;
 
+import io.reactivex.FlowableSubscriber;
 import io.reactivex.Maybe;
-import io.reactivex.MaybeObserver;
 import io.reactivex.annotations.NonNull;
-import io.reactivex.disposables.Disposable;
 
 @RunWith(AndroidJUnit4.class)
 public class MusicListDaoTest {
     private static final String TAG = MusicListDaoTest.class.getSimpleName();
 
     private AppDatabase mDatabase;
+    private MusicListDao mMusicListDao;
+    private MusicDao mMusicDao;
+    private MusicListAndMusicCrossRefDao mCrossRefDao;
 
     @Before
     public void createDb() {
@@ -35,6 +43,9 @@ public class MusicListDaoTest {
                 // 允许在主线程中运行，仅用于测试
                 .allowMainThreadQueries()
                 .build();
+        mMusicListDao = mDatabase.getMusicListDao();
+        mMusicDao = mDatabase.getMusicDao();
+        mCrossRefDao = mDatabase.getCrossRefDao();
     }
 
     @After
@@ -45,28 +56,75 @@ public class MusicListDaoTest {
     @Test
     public void testSaveAll() {
         List<MusicList> musicLists = MusicList.createList();
-        Maybe<List<Long>> insertResult = mDatabase.getMusicListDao().saveAll(musicLists);
-        insertResult.subscribe(new MaybeObserver<List<Long>>() {
-            @Override
-            public void onSubscribe(@NonNull Disposable d) {
+        Maybe<List<Long>> insertResult = mMusicListDao.saveAll(musicLists);
+        insertResult.subscribe(list -> {
+            Assert.assertEquals(Long.valueOf(10), Long.valueOf(list.size()));
+            Log.i(TAG, "insert success. Insert number is :" + list.size());
+        }).dispose();
+    }
 
-            }
+    @Test
+    public void testSaveOne() {
+        MusicList musicList = new MusicList();
+        musicList.setTitle("我喜欢的音乐");
+        Maybe<Long> saveResult = mMusicListDao.saveOne(musicList);
+        saveResult.subscribe(aLong -> {
+            Assert.assertEquals(Long.valueOf(1), aLong);
+            Log.i(TAG, "insert success. Music list id is :" + aLong);
+        }).dispose();
+    }
 
-            @Override
-            public void onSuccess(@NonNull List<Long> list) {
-                Assert.assertEquals(Long.valueOf(10), Long.valueOf(list.size()));
-                Log.i(TAG, "insert success. Insert number is :" + list.size());
-            }
+    @Test
+    public void testFindOneByName() {
+        MusicList musicList = new MusicList();
+        String title = "我喜欢的音乐";
+        musicList.setTitle(title);
+        Maybe<Long> saveResult = mMusicListDao.saveOne(musicList);
+        saveResult.subscribe(aLong -> {
+            mMusicListDao.findOneByTitle(title).subscribe(musicList1 -> {
+                Assert.assertEquals(title, musicList1.getTitle());
+                Log.i(TAG, "find one success. title is :" + musicList1.getTitle());
+            }).dispose();
+        }).dispose();
+    }
 
-            @Override
-            public void onError(@NonNull Throwable e) {
+    @Test
+    public void testGetAll() {
+        List<MusicList> musicLists = MusicList.createList();
+        Maybe<List<Long>> insertResult = mMusicListDao.saveAll(musicLists);
+        insertResult.subscribe(list -> {
+            mMusicListDao.getAllList().subscribe(new FlowableSubscriber<List<MusicList>>() {
+                @Override
+                public void onSubscribe(@NonNull Subscription s) {
+                    s.request(1);
+                }
 
-            }
+                @Override
+                public void onNext(List<MusicList> lists) {
+                    Assert.assertEquals(10, list.size());
+                    Log.i(TAG, "get all success, and size is :" + list.size());
+                }
 
-            @Override
-            public void onComplete() {
+                @Override
+                public void onError(Throwable t) {
 
-            }
-        });
+                }
+
+                @Override
+                public void onComplete() {
+
+                }
+            });
+        }).dispose();
+    }
+
+    @Test
+    public void testGetMusicListWithMusic() {
+        MusicList musicList = new MusicList();
+        mMusicListDao.saveOne(musicList);
+        List<Music> musics = Music.createList();
+        mMusicDao.saveAll(musics);
+
+        MusicListAndMusicCrossRef crossRef = new MusicListAndMusicCrossRef();
     }
 }

@@ -18,4 +18,13 @@ public interface MusicDao {
 
     @Insert
     Maybe<List<Long>> saveAll(List<Music> musics);
+
+    @Insert
+    Maybe<Long> saveOne(Music music);
+
+    @Query("select * from music where name = :name limit 1")
+    Maybe<Music> findOneByName(String name);
+
+    @Query("select * from music where musicId = :id")
+    Maybe<Music> findOneById(int id);
 }

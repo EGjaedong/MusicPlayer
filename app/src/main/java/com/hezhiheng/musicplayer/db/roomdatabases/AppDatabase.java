@@ -7,11 +7,13 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import com.hezhiheng.musicplayer.db.dao.MusicDao;
+import com.hezhiheng.musicplayer.db.dao.MusicListAndMusicCrossRefDao;
 import com.hezhiheng.musicplayer.db.dao.MusicListDao;
 import com.hezhiheng.musicplayer.db.entity.Music;
 import com.hezhiheng.musicplayer.db.entity.MusicList;
+import com.hezhiheng.musicplayer.db.entity.MusicListAndMusicCrossRef;
 
-@Database(entities = {MusicList.class, Music.class}, version = 1, exportSchema = false)
+@Database(entities = {MusicList.class, Music.class, MusicListAndMusicCrossRef.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase instance;
     private static final String DATA_BASE_NAME = "music_list_db";
@@ -29,4 +31,6 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract MusicListDao getMusicListDao();
 
     public abstract MusicDao getMusicDao();
+
+    public abstract MusicListAndMusicCrossRefDao getCrossRefDao();
 }

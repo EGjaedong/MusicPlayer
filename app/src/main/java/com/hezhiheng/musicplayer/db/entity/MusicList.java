@@ -14,23 +14,19 @@ public class MusicList {
     private int musicListId;
     @ColumnInfo
     private String title;
-    @ColumnInfo
-    private int count;
 
     public MusicList() {
     }
 
     @Ignore
-    public MusicList(String title, int count) {
+    public MusicList(String title) {
         this.title = title;
-        this.count = count;
     }
 
     @Ignore
-    public MusicList(int musicListId, String title, int count) {
+    public MusicList(int musicListId, String title) {
         this.musicListId = musicListId;
         this.title = title;
-        this.count = count;
     }
 
     public int getMusicListId() {
@@ -49,18 +45,10 @@ public class MusicList {
         this.title = title;
     }
 
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
-    }
-
     public static List<MusicList> createList() {
         List<MusicList> lists = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            lists.add(new MusicList("音乐列表" + i, 233 + i));
+            lists.add(new MusicList("音乐列表" + i));
         }
         return lists;
     }
