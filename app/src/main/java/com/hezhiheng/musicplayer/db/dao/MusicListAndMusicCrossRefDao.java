@@ -19,6 +19,6 @@ public interface MusicListAndMusicCrossRefDao {
     @Insert
     Maybe<List<Long>> saveAll(List<MusicListAndMusicCrossRef> crossRefs);
 
-    @Query("select * from cross_ref where musicListId = :id")
+    @Query("select * from cross_ref where music_list_id = :id")
     Flowable<List<MusicListAndMusicCrossRef>> findAllMusicInOneMusicList(int id);
 }

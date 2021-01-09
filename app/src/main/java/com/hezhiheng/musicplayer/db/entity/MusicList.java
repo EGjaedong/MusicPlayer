@@ -11,6 +11,7 @@ import java.util.List;
 @Entity(tableName = "music_list")
 public class MusicList {
     @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "music_list_id", index = true)
     private int musicListId;
     @ColumnInfo
     private String title;

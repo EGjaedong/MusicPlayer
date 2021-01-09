@@ -25,13 +25,13 @@ public interface MusicListDao {
     @Insert
     Maybe<Long> saveOne(MusicList musicList);
 
-    @Transaction
-    @Query("select * from music_list")
-    Flowable<List<MusicListWithMusic>> getMusicListWithMusic();
-
     @Query("select * from music_list where title = :title")
     Maybe<MusicList> findOneByTitle(String title);
 
-    @Query("select * from music_list where musicListId = :id")
+    @Query("select * from music_list where music_list_id = :id")
     Maybe<MusicList> findOneById(int id);
+
+    @Transaction
+    @Query("select * from music_list")
+    Flowable<List<MusicListWithMusic>> findAllMusicListWithMusic();
 }

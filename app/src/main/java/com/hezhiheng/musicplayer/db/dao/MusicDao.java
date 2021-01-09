@@ -25,6 +25,6 @@ public interface MusicDao {
     @Query("select * from music where name = :name limit 1")
     Maybe<Music> findOneByName(String name);
 
-    @Query("select * from music where musicId = :id")
+    @Query("select * from music where music_id = :id")
     Maybe<Music> findOneById(int id);
 }

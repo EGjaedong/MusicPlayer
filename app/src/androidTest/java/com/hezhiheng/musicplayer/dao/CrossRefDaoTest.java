@@ -128,6 +128,6 @@ public class CrossRefDaoTest {
         mCrossRefDao.saveAll(crossRefs).subscribe(list -> {
             Assert.assertEquals(10, list.size());
             Log.i(TAG, "insert success");
-        }, Throwable::printStackTrace).dispose();
+        }).dispose();
     }
 }

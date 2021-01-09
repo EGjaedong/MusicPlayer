@@ -12,6 +12,7 @@ import com.hezhiheng.musicplayer.db.dao.MusicListDao;
 import com.hezhiheng.musicplayer.db.entity.Music;
 import com.hezhiheng.musicplayer.db.entity.MusicList;
 import com.hezhiheng.musicplayer.db.entity.MusicListAndMusicCrossRef;
+import com.hezhiheng.musicplayer.db.entity.MusicListWithMusic;
 import com.hezhiheng.musicplayer.db.roomdatabases.AppDatabase;
 
 import org.junit.After;
@@ -26,6 +27,7 @@ import java.util.List;
 import io.reactivex.FlowableSubscriber;
 import io.reactivex.Maybe;
 import io.reactivex.annotations.NonNull;
+import io.reactivex.functions.Consumer;
 
 @RunWith(AndroidJUnit4.class)
 public class MusicListDaoTest {
@@ -121,10 +123,18 @@ public class MusicListDaoTest {
     @Test
     public void testGetMusicListWithMusic() {
         MusicList musicList = new MusicList();
-        mMusicListDao.saveOne(musicList);
-        List<Music> musics = Music.createList();
-        mMusicDao.saveAll(musics);
+        mMusicListDao.saveOne(musicList).subscribe(aLong -> {
+            List<Music> musics = Music.createList();
+            mMusicDao.saveAll(musics).subscribe(list -> {
+                mMusicListDao.findAllMusicListWithMusic().subscribe(musicListWithMusics -> {
+                    Assert.assertEquals(1, musicListWithMusics.size());
+                    Assert.assertEquals(3, musicListWithMusics.get(0).musics.size());
+                    MusicListWithMusic musicListWithMusic = musicListWithMusics.get(0);
+                    Log.i(TAG, "music list is: " + musicListWithMusic.musicList.getTitle()
+                            + " and musics are :" + musicListWithMusic.musics);
+                }).dispose();
+            }).dispose();
+        }).dispose();
 
-        MusicListAndMusicCrossRef crossRef = new MusicListAndMusicCrossRef();
     }
 }
