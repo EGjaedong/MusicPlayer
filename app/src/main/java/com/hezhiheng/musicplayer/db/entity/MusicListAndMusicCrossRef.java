@@ -2,6 +2,7 @@ package com.hezhiheng.musicplayer.db.entity;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 @Entity(tableName = "cross_ref", primaryKeys = {"music_list_id", "music_id"})
 public class MusicListAndMusicCrossRef {

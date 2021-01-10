@@ -5,15 +5,16 @@ import android.util.Log;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.hezhiheng.musicplayer.MusicPlayerApplication;
+import com.hezhiheng.musicplayer.R;
 import com.hezhiheng.musicplayer.db.entity.MusicList;
 import com.hezhiheng.musicplayer.repository.MusicListRepository;
 
 import java.util.List;
 
 import io.reactivex.Flowable;
-import io.reactivex.MaybeObserver;
-import io.reactivex.annotations.NonNull;
-import io.reactivex.disposables.Disposable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 public class MusicListViewModel extends ViewModel {
@@ -27,31 +28,17 @@ public class MusicListViewModel extends ViewModel {
     }
 
     private void init() {
-        saveAll(MusicList.createList());
+        initFavourite();
     }
 
-    public void saveAll(List<MusicList> lists) {
-        mRepository.saveAll(lists).subscribeOn(Schedulers.io()).subscribe(new MaybeObserver<List<Long>>() {
-            @Override
-            public void onSubscribe(@NonNull Disposable d) {
-
-            }
-
-            @Override
-            public void onSuccess(@NonNull List<Long> list) {
-                Log.i(TAG, "insert success");
-            }
-
-            @Override
-            public void onError(@NonNull Throwable e) {
-                Log.e(TAG, "insert error");
-            }
-
-            @Override
-            public void onComplete() {
-
-            }
-        });
+    private void initFavourite() {
+        MusicList myFavMusicList = new MusicList(MusicPlayerApplication.getInstance()
+                .getApplicationContext().getString(R.string.my_favorite_list_title_text));
+        mRepository.saveOne(myFavMusicList)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(aLong -> Log.i(TAG, "save my favorite success and id is :" + aLong))
+                .dispose();
     }
 
     public Flowable<List<MusicList>> getAllMusicList() {

@@ -21,4 +21,12 @@ public class MusicListRepository {
     public Flowable<List<MusicList>> getAllMusicLists() {
         return mDao.getAllList();
     }
+
+    public Maybe<Long> saveOne(MusicList musicList) {
+        return mDao.saveOne(musicList);
+    }
+
+    public Maybe<MusicList> findOneByTitle(String title) {
+        return mDao.findOneByTitle(title);
+    }
 }

@@ -11,6 +11,7 @@ import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -39,7 +40,8 @@ public class MainPageContentFragment extends Fragment {
     private FragmentActivity mActivity;
     private MusicListViewModel mViewModel;
     private List<MusicList> mMusicLists;
-    private Disposable mDisposable;
+    private Disposable mMusicListsDisposable;
+    private Disposable mMyFavoriteDisposable;
     private MusicListAdapter mAdapter;
     private boolean isFirstShow = true;
 
@@ -51,6 +53,8 @@ public class MainPageContentFragment extends Fragment {
     ScrollView mScrollview;
     @BindView(R.id.main_page_user_info_container)
     LinearLayout mMainUserInfoContainer;
+    @BindView(R.id.my_favorite_music_list_container)
+    ConstraintLayout mMyFavoriteContainer;
 
 
     private final MusicListAdapter.OnItemClickListener itemClickListener = (view, position) -> {
@@ -78,17 +82,22 @@ public class MainPageContentFragment extends Fragment {
     @Override
     public void onStop() {
         super.onStop();
-        mDisposable.dispose();
+        mMusicListsDisposable.dispose();
     }
 
     private void initView() {
         getAllMusicLists();
         showMusicLists();
         setScrollListener();
+        initMyFavorite();
+    }
+
+    private void initMyFavorite() {
+
     }
 
     private void getAllMusicLists() {
-        mDisposable = mViewModel.getAllMusicList()
+        mMusicListsDisposable = mViewModel.getAllMusicList()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(lists -> {

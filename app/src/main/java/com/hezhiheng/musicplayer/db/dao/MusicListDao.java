@@ -31,6 +31,7 @@ public interface MusicListDao {
     @Query("select * from music_list where music_list_id = :id")
     Maybe<MusicList> findOneById(int id);
 
+    // 目前测试中查不出来数据
     @Transaction
     @Query("select * from music_list")
     Flowable<List<MusicListWithMusic>> findAllMusicListWithMusic();

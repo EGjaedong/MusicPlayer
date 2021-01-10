@@ -12,13 +12,8 @@ public class MusicWithMusicLists {
 
     @Relation(
             parentColumn = "music_id",
-            entity = MusicList.class,
             entityColumn = "music_list_id",
-            associateBy = @Junction(
-                    value = MusicListAndMusicCrossRef.class,
-                    parentColumn = "music_id",
-                    entityColumn = "music_list_id"
-            )
+            associateBy = @Junction(MusicListAndMusicCrossRef.class)
     )
     public List<MusicList> musicLists;
 }

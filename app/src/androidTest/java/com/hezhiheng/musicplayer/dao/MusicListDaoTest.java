@@ -24,6 +24,7 @@ import org.reactivestreams.Subscription;
 
 import java.util.List;
 
+import io.reactivex.BackpressureStrategy;
 import io.reactivex.FlowableSubscriber;
 import io.reactivex.Maybe;
 import io.reactivex.annotations.NonNull;
@@ -91,7 +92,7 @@ public class MusicListDaoTest {
     }
 
     @Test
-    public void testGetAll() {
+    public void testFindAll() {
         List<MusicList> musicLists = MusicList.createList();
         Maybe<List<Long>> insertResult = mMusicListDao.saveAll(musicLists);
         insertResult.subscribe(list -> {
@@ -121,20 +122,40 @@ public class MusicListDaoTest {
     }
 
     @Test
-    public void testGetMusicListWithMusic() {
+    public void testFindMusicListWithMusic() {
         MusicList musicList = new MusicList();
         mMusicListDao.saveOne(musicList).subscribe(aLong -> {
+            Log.i(TAG, "music list insert success and id is :" + aLong);
             List<Music> musics = Music.createList();
             mMusicDao.saveAll(musics).subscribe(list -> {
-                mMusicListDao.findAllMusicListWithMusic().subscribe(musicListWithMusics -> {
-                    Assert.assertEquals(1, musicListWithMusics.size());
-                    Assert.assertEquals(3, musicListWithMusics.get(0).musics.size());
-                    MusicListWithMusic musicListWithMusic = musicListWithMusics.get(0);
-                    Log.i(TAG, "music list is: " + musicListWithMusic.musicList.getTitle()
-                            + " and musics are :" + musicListWithMusic.musics);
-                }).dispose();
+                Assert.assertEquals(3, list.size());
+                Log.i(TAG, "music insert success and size is :" + list.size());
+                mMusicListDao.findAllMusicListWithMusic().subscribe(new FlowableSubscriber<List<MusicListWithMusic>>() {
+                    @Override
+                    public void onSubscribe(@NonNull Subscription s) {
+                        s.request(1);
+                    }
+
+                    @Override
+                    public void onNext(List<MusicListWithMusic> musicListWithMusics) {
+                        Assert.assertEquals(1, musicListWithMusics.size());
+                        Assert.assertEquals(3, musicListWithMusics.get(0).musics.size());
+                        MusicListWithMusic musicListWithMusic = musicListWithMusics.get(0);
+                        Log.i(TAG, "music list is: " + musicListWithMusic.musicList.getTitle()
+                                + " and musics are :" + musicListWithMusic.musics);
+                    }
+
+                    @Override
+                    public void onError(Throwable t) {
+                        t.printStackTrace();
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
             }).dispose();
         }).dispose();
-
     }
 }
