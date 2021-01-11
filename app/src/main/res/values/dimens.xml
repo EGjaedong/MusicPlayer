@@ -96,4 +96,16 @@
     <dimen name="music_list_container_height">500dp</dimen>
     <dimen name="music_item_container_margin_start_and_end">24dp</dimen>
     <dimen name="music_list_container_margin_start_and_end">12dp</dimen>
+
+    <!-- play music page -->
+    <dimen name="play_music_name_text_size">44sp</dimen>
+    <dimen name="play_music_image_background_size">288dp</dimen>
+    <dimen name="play_music_image_padding">48dp</dimen>
+    <dimen name="play_progress_margin_top">24dp</dimen>
+    <dimen name="play_progress_margin_start_and_end">28dp</dimen>
+    <dimen name="control_button_margin_top">24dp</dimen>
+    <dimen name="play_control_image_size">24dp</dimen>
+    <dimen name="cycle_method_image_size">20dp</dimen>
+    <dimen name="cycle_method_image_margin_top">26dp</dimen>
+    <dimen name="btn_collect_size">36dp</dimen>
 </resources>

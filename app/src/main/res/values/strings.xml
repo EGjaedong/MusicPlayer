@@ -28,4 +28,11 @@
     <string name="music_item_name_hint">晴天</string>
     <string name="music_item_desc_hint">周杰伦-叶惠美</string>
     <string name="music_item_desc_template">%s-%s</string>
+    <string name="play_music_name_text_hint">稻香</string>
+    <string name="play_music_image_description">播放中的音乐</string>
+    <string name="btn_cycle_method">循环方式</string>
+    <string name="btn_previous">上一曲</string>
+    <string name="btn_play">播放</string>
+    <string name="btn_next">下一曲</string>
+    <string name="btn_list">播放列表</string>
 </resources>

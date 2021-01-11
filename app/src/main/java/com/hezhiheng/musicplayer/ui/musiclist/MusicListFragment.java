@@ -8,12 +8,14 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hezhiheng.musicplayer.R;
 import com.hezhiheng.musicplayer.adapter.MusicListContentAdapter;
 import com.hezhiheng.musicplayer.db.entity.Music;
+import com.hezhiheng.musicplayer.ui.playerpage.PlayPageFragment;
 
 import java.util.List;
 
@@ -23,11 +25,17 @@ import butterknife.Unbinder;
 
 public class MusicListFragment extends Fragment {
     private Unbinder mBind;
-
+    private FragmentActivity mActivity;
     private List<Music> mList = Music.createList();
+    MusicListContentAdapter mAdapter;
 
     @BindView(R.id.music_list_container)
     RecyclerView mMusicContainer;
+
+    private final MusicListContentAdapter.OnItemClickListener itemClickListener = (view, position) -> {
+        mActivity.getSupportFragmentManager().beginTransaction().add(
+                mActivity.findViewById(R.id.main_page_content_container).getId(), new PlayPageFragment()).commit();
+    };
 
     @Nullable
     @Override
@@ -35,8 +43,14 @@ public class MusicListFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.music_list_layout, container, false);
         mBind = ButterKnife.bind(this, view);
-        initView();
+        mActivity = getActivity();
         return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        initView();
     }
 
     @Override
@@ -46,8 +60,8 @@ public class MusicListFragment extends Fragment {
     }
 
     private void initView() {
-        MusicListContentAdapter adapter = new MusicListContentAdapter(mList, getContext());
-        mMusicContainer.setAdapter(adapter);
+        mAdapter = new MusicListContentAdapter(mList, getContext());
+        mMusicContainer.setAdapter(mAdapter);
         mMusicContainer.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 }

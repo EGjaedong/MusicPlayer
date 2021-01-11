@@ -17,6 +17,7 @@ import java.util.List;
 public class MusicListContentAdapter extends RecyclerView.Adapter<MusicItemViewHolder> {
     private List<Music> mList;
     private Context mContext;
+    private OnItemClickListener mItemClickListener;
 
     public MusicListContentAdapter(List<Music> mList, Context context) {
         this.mList = mList;
@@ -39,11 +40,20 @@ public class MusicListContentAdapter extends RecyclerView.Adapter<MusicItemViewH
             holder.mMusicItemName.setText(music.getName());
             holder.mMusicItemDesc.setText(String.format(mContext.getString(R.string.music_item_desc_template),
                     music.getSinger(), music.getAlbum()));
+            holder.setClickListener(mItemClickListener);
         }
+    }
+
+    public void setItemClickListener(OnItemClickListener listener){
+        mItemClickListener = listener;
     }
 
     @Override
     public int getItemCount() {
         return mList.size();
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(View v, int position);
     }
 }
